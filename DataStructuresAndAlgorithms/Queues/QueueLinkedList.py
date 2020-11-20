@@ -50,12 +50,3 @@ class QueueLinkedList:
             p = p._next
         print()
 
-
-Q = QueueLinkedList()
-Q.enqueue(3)
-Q.enqueue(6)
-Q.enqueue(7)
-Q.display()
-print(len(Q))
-Q.dequeue()
-Q.display()

@@ -1,3 +1,5 @@
+from Queues.QueueLinkedList import QueueLinkedList
+
 class _Node:
     __slots__ = '_element','_left','_right'
 
@@ -31,6 +33,21 @@ class BinaryTree:
             self.postorder(troot._right)
             print(troot._element,end=' ')
 
+    def levelorder(self):
+        Q = QueueLinkedList()
+        t = self._root
+        print(t._element,end=" ")
+        Q.enqueue(t)
+        while not Q.isempty():
+            t = Q.dequeue()
+            if t._left:
+                print(t._left._element,end=' ')
+                Q.enqueue(t._left)
+            if t._right:
+                print(t._right._element,end=' ')
+                Q.enqueue(t._right)
+
+
 
 x = BinaryTree()
 y = BinaryTree()
@@ -53,6 +70,9 @@ print('\nPre Order:')
 t.preorder(t._root)
 print('\nPost Order:')
 t.postorder(t._root)
+
+print('\nLevel Order:')
+t.levelorder()
 
 '''
 x.maketree(20,a,a)
