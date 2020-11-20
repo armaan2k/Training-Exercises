@@ -47,6 +47,23 @@ class BinaryTree:
                 print(t._right._element,end=' ')
                 Q.enqueue(t._right)
 
+    def count(self,troot):
+        if troot:
+            x = self.count(troot._left)
+            y = self.count(troot._right)
+            return x + y + 1
+        return 0
+
+    def height(self,troot):
+        if troot:
+            x = self.height(troot._left)
+            y = self.height(troot._right)
+            if x > y:
+                return x + 1
+            else:
+                return y + 1
+        return 0
+
 
 
 x = BinaryTree()
@@ -73,6 +90,10 @@ t.postorder(t._root)
 
 print('\nLevel Order:')
 t.levelorder()
+
+print("\n",t.count(t._root))
+
+print(t.height(t._root)-1)
 
 '''
 x.maketree(20,a,a)
